@@ -5,6 +5,7 @@ from datetime import *
 from login import models as lm
 import pprint
 
+
 class MemoryTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.MemoryTag
@@ -212,8 +213,8 @@ class Memory1Serializer(serializers.ModelSerializer):
     def get_tags(self, obj):
         tags = models.MemoryTag.objects.filter(memory=obj.id)
         return MemoryTagSerializer(tags, many=True).data
-    
-    def get_location(self,obj):
+
+    def get_location(self, obj):
         location = models.Location.objects.filter(id=obj.location_id)
         return LocationSerializer(location, many=True).data
 
@@ -235,15 +236,17 @@ class PointLocationSerializer(serializers.ModelSerializer):
         model = models.PointLocation
         fields = "__all__"
 
+
 class LocationSerializer(serializers.ModelSerializer):
     location_list = serializers.SerializerMethodField()
+
     class Meta:
         model = models.Location
         fields = [
             "location_type",
             "location_list"
         ]
+
     def get_location_list(self, obj):
         location = obj.location_list.all()
         return PointLocationSerializer(location, many=True).data
-
