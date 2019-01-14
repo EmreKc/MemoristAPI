@@ -1,5 +1,5 @@
 
-git clone https://github.com/bounswe/bounswe2018group4.git
+git clone https://github.com/EmreKc/MemoristAPI.git
 
 cd bounswe2018group4/MemoristAPI/
 
