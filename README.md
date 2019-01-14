@@ -1,7 +1,7 @@
 
 git clone https://github.com/EmreKc/MemoristAPI.git
 
-cd bounswe2018group4/MemoristAPI/
+cd MemoristAPI/
 
 python(python3) -m venv venv
 
