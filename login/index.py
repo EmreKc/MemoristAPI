@@ -148,7 +148,8 @@ def send_sms(header, message, phones):
     sms_msg = {
         'username': data['username'],  # https://oim.verimor.com.tr/sms_settings/edit adresinden öğrenebilirsiniz.
         'password': data['password'],  # https://oim.verimor.com.tr/sms_settings/edit adresinden belirlemeniz gerekir.
-        'source_addr': header,  # Gönderici başlığı, https://oim.verimor.com.tr/headers adresinde onaylanmış olmalı, değilse 400 hatası alırsınız.
+        'source_addr': header,
+        # Gönderici başlığı, https://oim.verimor.com.tr/headers adresinde onaylanmış olmalı, değilse 400 hatası alırsınız.
         'messages': [
             {'msg': message, 'dest': phones}
         ]

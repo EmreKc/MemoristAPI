@@ -9,20 +9,23 @@ class StaffModelTests(TestCase):
 
     def setUp(self):
         url = '/auth/register'
-        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com', 'password': '1234qwer', 'username': 'emrekoc'}
+        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com',
+                       'password': '1234qwer', 'username': 'emrekoc'}
         self.client = utils.register_user(self.client, url, credentials)
 
     def test_register_with_success(self):
         """Ensure user can register with correct request."""
         url = '/auth/register'
-        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com', 'password': '1234qwer', 'username': 'emrekoc'}
+        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com',
+                       'password': '1234qwer', 'username': 'emrekoc'}
         response = APIClient().post(url, credentials)
         self.assertEqual(response.status_code, 201)
 
     def test_register_twice(self):
         """Ensure that registering with same email twice results in 400 status code."""
         url = '/auth/register'
-        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com', 'password': '1234qwer', 'username': 'emrekoc'}
+        credentials = {'first_name': 'emre', 'last_name': 'koc', 'email': 'emreh134150@gmail.com',
+                       'password': '1234qwer', 'username': 'emrekoc'}
         response = APIClient().post(url, credentials)
         self.assertEqual(response.status_code, 400)
 

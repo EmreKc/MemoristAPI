@@ -67,7 +67,8 @@ class VerifyEmail(RedirectView):
         activation = lm.Activation.objects.filter(code=uh).first()
 
         if not activation:
-            return Response({'status': 'fail', 'detail': 'Activation is not registered'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'status': 'fail', 'detail': 'Activation is not registered'},
+                            status=status.HTTP_400_BAD_REQUEST)
 
         user = activation.user
         user.activeEmail_status = True
@@ -292,4 +293,6 @@ class SearchUserAPIView(ListAPIView):
     serializer_class = ls.UserSearchSerializer
 
     def get_queryset(self):
-        return lm.RegisteredUser.objects.filter(Q(username__icontains=self.kwargs['pk']) | Q(first_name__icontains=self.kwargs['pk']) | Q(last_name__icontains=self.kwargs['pk']))
+        return lm.RegisteredUser.objects.filter(
+            Q(username__icontains=self.kwargs['pk']) | Q(first_name__icontains=self.kwargs['pk']) | Q(
+                last_name__icontains=self.kwargs['pk']))
