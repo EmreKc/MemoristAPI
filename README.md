@@ -3,7 +3,7 @@ git clone https://github.com/EmreKc/MemoristAPI.git
 
 cd MemoristAPI/
 
-python -m venv venv
+python3 -m venv venv
 
 venv\Scripts\activate.bat (Windows)
 
