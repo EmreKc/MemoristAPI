@@ -7,7 +7,6 @@ GENDER = (
     (3, "Other/Don't want to say")
 )
 
-
 class PointLocation(models.Model):
     location_name = models.CharField(max_length=30, null=False, blank=False)
     location_coordinate_latitude = models.CharField(max_length=30, null=False, blank=False)
